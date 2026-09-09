@@ -53,10 +53,14 @@ app.get('/users', async (req, res) => {
 });
 
 app.get('/cookie', (req, res) => {
-	const currentCookie = req.cookies.number;
-	let setCookie = currentCookie ? currentCookie + 1 : 1;
+	const currentCookie = Number(req.cookies.number);
+	const setCookie = Number.isNaN(currentCookie) ? 1 : currentCookie + 1;
 
 	res.cookie('number', setCookie);
+
+	res.json({
+		number: setCookie,
+	});
 });
 
 app.listen(PORT, () => {
