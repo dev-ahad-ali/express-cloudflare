@@ -29,7 +29,7 @@ app.get('/health', (_, res) => {
 });
 
 app.post('/echo', (req, res) => {
-	const message = req.body.messge;
+	const message = req.body.message;
 
 	res.json({
 		echo: message,
