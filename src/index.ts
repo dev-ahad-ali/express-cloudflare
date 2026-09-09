@@ -37,7 +37,13 @@ app.post('/echo', (req, res) => {
 });
 
 app.post('/create-user', async (req, res) => {
-	const insertResult = await env.DB;
+	const insertResult = await env.DB.prepare('INSERT INTO users (name) VALUES (?)').bind(req.body.name).run();
+
+	const newUserId = insertResult.meta.last_row_id;
+
+	const newUser = await env.DB.prepare('SELECT * FROM users WHERE id = ?').bind(newUserId).run();
+
+	res.json(newUser);
 });
 
 app.get('/cookie', (req, res) => {
