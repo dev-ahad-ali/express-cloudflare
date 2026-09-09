@@ -46,6 +46,12 @@ app.post('/create-user', async (req, res) => {
 	res.json(newUser);
 });
 
+app.get('/users', async (req, res) => {
+	const users = await env.DB.prepare('SELECT * FROM users').run();
+
+	res.json(users);
+});
+
 app.get('/cookie', (req, res) => {
 	const currentCookie = req.cookies.number;
 	let setCookie = currentCookie ? currentCookie + 1 : 1;
