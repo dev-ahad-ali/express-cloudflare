@@ -15,5 +15,10 @@
 		"typescript": "^5.5.2",
 		"vitest": "~4.1.0",
 		"wrangler": "^4.130.0"
+	},
+	"dependencies": {
+		"cookie-parser": "^1.4.7",
+		"cors": "^2.8.6",
+		"express": "^5.2.1"
 	}
 }
