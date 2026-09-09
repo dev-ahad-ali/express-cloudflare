@@ -16,7 +16,7 @@
 	"upload_source_maps": true,
 	"d1_databases": [
 		{
-			"binding": "spike_db",
+			"binding": "DB",
 			"database_name": "spike-db",
 			"database_id": "924dd264-237a-4862-b4d7-8da0862204d9"
 		}

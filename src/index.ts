@@ -1,8 +1,8 @@
 import express from 'express';
 import cookieParser from 'cookie-parser';
 import cors from 'cors';
-import { env } from 'cloudflare:workers';
 import { httpServerHandler } from 'cloudflare:node';
+import { env } from 'cloudflare:workers';
 
 const PORT = 8080;
 
@@ -36,7 +36,9 @@ app.post('/echo', (req, res) => {
 	});
 });
 
-app.post('/create-user', (req, res) => {});
+app.post('/create-user', async (req, res) => {
+	const insertResult = await env.DB;
+});
 
 app.get('/cookie', (req, res) => {
 	const currentCookie = req.cookies.number;
