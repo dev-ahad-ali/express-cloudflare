@@ -1,10 +1,14 @@
 import express from 'express';
 import cookieParser from 'cookie-parser';
 import cors from 'cors';
+import { env } from 'cloudflare:workers';
+import { httpServerHandler } from 'cloudflare:node';
 
 const PORT = 8080;
 
 const app = express();
+
+app.use(express.json());
 
 app.use(
 	cors({
@@ -32,6 +36,8 @@ app.post('/echo', (req, res) => {
 	});
 });
 
+app.post('/create-user', (req, res) => {});
+
 app.get('/cookie', (req, res) => {
 	const currentCookie = req.cookies.number;
 	let setCookie = currentCookie ? currentCookie + 1 : 1;
@@ -42,3 +48,5 @@ app.get('/cookie', (req, res) => {
 app.listen(PORT, () => {
 	console.log(`Server is listening or Port: ${PORT}`);
 });
+
+export default httpServerHandler({ port: PORT });

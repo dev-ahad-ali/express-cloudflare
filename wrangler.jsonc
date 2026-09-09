@@ -7,11 +7,20 @@
 	"name": "spike-express",
 	"main": "src/index.ts",
 	"compatibility_date": "2026-09-07",
-	"compatibility_flags": ["nodejs_compat"],
+	"compatibility_flags": [
+		"nodejs_compat"
+	],
 	"observability": {
 		"enabled": true
 	},
-	"upload_source_maps": true
+	"upload_source_maps": true,
+	"d1_databases": [
+		{
+			"binding": "spike_db",
+			"database_name": "spike-db",
+			"database_id": "924dd264-237a-4862-b4d7-8da0862204d9"
+		}
+	]
 	/**
 	 * Smart Placement
 	 * https://developers.cloudflare.com/workers/configuration/smart-placement/#smart-placement
