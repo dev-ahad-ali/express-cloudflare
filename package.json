@@ -2,6 +2,7 @@
 	"name": "spike-express",
 	"version": "0.0.0",
 	"private": true,
+	"type": "module",
 	"scripts": {
 		"deploy": "wrangler deploy",
 		"dev": "wrangler dev",
@@ -11,6 +12,9 @@
 	},
 	"devDependencies": {
 		"@cloudflare/vitest-plugin": "^1.0.0",
+		"@types/cookie-parser": "^1.4.10",
+		"@types/cors": "^2.8.19",
+		"@types/express": "^5.0.6",
 		"@types/node": "^26.5.0",
 		"typescript": "^5.5.2",
 		"vitest": "~4.1.0",
